@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label for="email">Author</label>
                 <select name="author_id" id="author_id" class="form-control @error('author_id') is-invalid @enderror">
-                    <option value="null">Choose an author</option>
+                    <option>Choose an author</option>
                     @forelse ($authors as $author)
                     <option value="{{ $author->id }}">{{ $author->first_name }} {{ $author->last_name }}</option>
                     @empty
