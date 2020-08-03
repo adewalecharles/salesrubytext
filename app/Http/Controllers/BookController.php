@@ -49,7 +49,7 @@ class BookController extends Controller
 
         Book::create($data);
 
-        return view('welcome');
+        return redirect()->route('home');
     }
 
     /**

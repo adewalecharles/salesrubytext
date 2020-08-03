@@ -15,14 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $books = Book::all();
-    return view('welcome',compact('books'));
-});
+// Route::get('/', function () {
+
+//     return view('welcome',compact('books'));
+// });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('create-author', 'AuthorController@create');
 Route::post('add-author', 'AuthorController@store');
 Route::get('create-book', 'BookController@create');

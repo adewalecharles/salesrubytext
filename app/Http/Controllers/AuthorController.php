@@ -47,7 +47,7 @@ class AuthorController extends Controller
 
         Author::create($data);
 
-        return view('welcome');
+        return redirect()->route('home');
     }
 
     /**

@@ -19,7 +19,7 @@ class CreateBooksTable extends Migration
             $table->text('description')->nullable();
             $table->integer('pages');
             $table->double('price',8,2);
-            $table->integer('author_id')->unsigned()->references('id')->on('authors');
+            $table->integer('author_id')->unsigned()->references('id')->on('authors')->onDelete('cascade');
             $table->timestamps();
         });
     }
