@@ -1,5 +1,6 @@
 <?php
 
+use App\Book;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $books = Book::all();
+    return view('welcome',compact('books'));
 });
 
 Auth::routes();
@@ -25,3 +27,5 @@ Route::get('create-author', 'AuthorController@create');
 Route::post('add-author', 'AuthorController@store');
 Route::get('create-book', 'BookController@create');
 Route::post('add-book', 'BookController@store');
+Route::get('show-book/{book}','BookController@show');
+Route::DELETE('delete-book/{book}', 'BookController@destroy');

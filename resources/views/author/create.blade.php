@@ -6,6 +6,7 @@
         <div class="col-md-8">
             <form action="{{ url('add-author') }}" method="POST">
                 @csrf
+                hello
             <div class="form-group">
                 <label for="first_name">First Name</label>
                 <input type="text" name="first_name" id="first_name" class="form-control @error('first_name') is-invalid @enderror" autocomplete="first_name" required>
@@ -35,22 +36,14 @@
             </div>
             <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="tel" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror" autocomplete="phone" required>
+                <input type="tel" name="phone" id="phone" class="form-control @error('phone') is-invalid @enderror" autocomplete="phone">
                 @error('phone')
                  <span class="invalid-feedback" role="alert">
                      <strong>{{ $message }}</strong>
                      </span>
                 @enderror
             </div>
-            <div class="form-group">
-                <label for="image">Avatar (optional)</label>
-                <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror" autocomplete="image" required>
-                @error('image')
-                 <span class="invalid-feedback" role="alert">
-                     <strong>{{ $message }}</strong>
-                     </span>
-                @enderror
-            </div>
+           
             <div>
                 <button type="submit" class="btn btn-primary">Create</button>
             </div>

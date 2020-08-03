@@ -39,22 +39,15 @@ class AuthorController extends Controller
             'first_name' => 'required|string',
             'last_name' => 'required|string',
             'email' => 'required|string|unique:authors',
-            'image' => 'sometimes|image|mimes:png,jpg,jpeg,gif|max:2048',
-            'phone' => 'sometimes|digits:11'
+            'phone' => 'digits:11'
         ]);
 
         $data = $request->all();
 
-        if ($request->hasFile('image')) {
-            $imageName = time().'.'.$request->image->extension();
-
-            $request->image->move(public_path('images'), $imageName);
-            $data['image'] = '/images/'.$imageName;
-        }
 
         Author::create($data);
 
-        return redirect()->back();
+        return view('welcome');
     }
 
     /**

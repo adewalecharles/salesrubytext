@@ -19,7 +19,6 @@ class CreateAuthorsTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('phone')->nullable();
-            $table->string('image')->default('/images/default.png');
             $table->timestamps();
         });
     }

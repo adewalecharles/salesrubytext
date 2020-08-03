@@ -40,24 +40,16 @@ class BookController extends Controller
         $this->validate($request,[
             'title' => 'required|string',
             'description' => '',
-            'email' => 'required',
-            'image' => 'sometimes|image|mimes:png,jpg,jpeg,gif|max:2048',
+            'pages' => 'required',
             'author_id' => 'required',
             'price'=> 'required'
         ]);
 
         $data = $request->all();
 
-        if ($request->hasFile('image')) {
-            $imageName = time().'.'.$request->image->extension();
-
-            $request->image->move(public_path('images'), $imageName);
-            $data['image'] = '/images/'.$imageName;
-        }
-
         Book::create($data);
 
-        return redirect()->back();
+        return view('welcome');
     }
 
     /**
